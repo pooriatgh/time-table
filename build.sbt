@@ -1,6 +1,6 @@
 import Dependencies._
 
-ThisBuild / scalaVersion := "2.13.8"
+ThisBuild / scalaVersion := "3.1.0"
 ThisBuild / version := "2.0.0"
 ThisBuild / organization := "dev.profunktor"
 ThisBuild / organizationName := "ProfunKtor"
@@ -20,6 +20,7 @@ lazy val root = (project in file("."))
 lazy val tests = (project in file("modules/tests"))
   .configs(IntegrationTest)
   .settings(
+    scalaVersion := "2.13.8",
     name := "shopping-cart-test-suite",
     scalacOptions ++= List("-Ymacro-annotations", "-Yrangepos", "-Wconf:cat=unused:info"),
     testFrameworks += new TestFramework("weaver.framework.CatsEffect"),
@@ -44,6 +45,7 @@ lazy val core = (project in file("modules/core"))
   .enablePlugins(DockerPlugin)
   .enablePlugins(AshScriptPlugin)
   .settings(
+    scalaVersion := "2.13.8",
     name := "shopping-cart-core",
     Docker / packageName := "shopping-cart",
     scalacOptions ++= List("-Ymacro-annotations", "-Yrangepos", "-Wconf:cat=unused:info"),
